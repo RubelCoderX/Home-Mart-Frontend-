@@ -1,12 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import navbarReducer from "./features/navbar/navbarSlice";
 import { baseApi } from "./api/baseApi";
+import productApi from "./features/product/productApi";
 
 export const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
     navbar: navbarReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(productApi.middleware),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

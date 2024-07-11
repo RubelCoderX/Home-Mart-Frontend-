@@ -1,8 +1,8 @@
 import { baseApi } from "@/redux/api/baseApi";
 
-export const productApi = baseApi.injectEndpoints({
+const productApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getAllProducts: builder.mutation({
+    getAllProducts: builder.query({
       query: () => ({
         url: "/product",
         method: "GET",
@@ -10,3 +10,5 @@ export const productApi = baseApi.injectEndpoints({
     }),
   }),
 });
+
+export default productApi;
