@@ -4,7 +4,7 @@ import logo from "../../assets/logo/camper_logo.png";
 
 const Footer = () => {
   return (
-    <div className="bg-[#202020] text-gray-300">
+    <div className="bg-[#202020] text-gray-300 mt-20">
       <footer className="container mx-auto p-12 flex flex-col md:flex-row justify-between">
         <div className="flex-1 mb-8 md:mb-0">
           <div className="flex items-center mb-4">

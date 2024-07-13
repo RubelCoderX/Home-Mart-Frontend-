@@ -47,8 +47,7 @@ const Testimonial = () => {
             <div
               key={testimonial.id}
               className="bg-white p-6 rounded-lg shadow-md"
-              data-aos="fade-left"
-              data-aos-delay="10"
+              data-aos="zoom-in"
             >
               <p className="text-gray-700 mb-4">{testimonial.content}</p>
               <div className="flex items-center">

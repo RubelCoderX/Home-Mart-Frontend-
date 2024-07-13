@@ -2,7 +2,6 @@ import BestSelling from "@/pages/BestSelling/BestSelling";
 import HeroSection from "../HeroSection/HeroSection";
 import CategroiesProduct from "@/pages/Categories/CategroiesProduct";
 import FeaturedProducts from "@/pages/FeaturedProducts/FeaturedProducts";
-import Blog from "@/pages/Blog/Blog";
 import Testimonial from "@/pages/Testimonial/Testimonial";
 import FrequentlyAsk from "@/pages/FrequentlyAsk/FrequentlyAsk";
 

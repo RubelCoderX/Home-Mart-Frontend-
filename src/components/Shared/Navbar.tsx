@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const dispatch = useAppDispatch();
   const { isMenuOpen, isSticky } = useAppSelector((state) => state.navbar);
+  const { totalQuantity } = useAppSelector((state) => state.cart);
 
   // function for making navbar sticky when scrolling
   useEffect(() => {
@@ -24,7 +25,7 @@ const Navbar = () => {
   }, [dispatch]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+    <header className="fixed top-0 left-0 right-0 z-50 mb-40 bg-white shadow-md">
       <nav
         className={`container mx-auto py-4 px-4 md:px-12 flex justify-between items-center transition-all duration-300 ${
           isSticky ? "bg-white shadow-lg" : ""
@@ -36,8 +37,8 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="hidden lg:flex items-center space-x-6">
-          <Link className="hover:text-gray-700" to="/product-details">
-            Product Details
+          <Link className="hover:text-gray-700" to="/products">
+            Products
           </Link>
           <Link className="hover:text-gray-700" to="/product-management">
             Product Management
@@ -55,9 +56,19 @@ const Navbar = () => {
               <HiSearch />
             </button>
           </div>
-          <button className="text-body text-2xl">
-            <HiOutlineShoppingCart />
-          </button>
+          <div className="relative">
+            <Link
+              to="/cart-items"
+              className="text-body text-2xl flex items-center"
+            >
+              <HiOutlineShoppingCart />
+              {totalQuantity > 0 && (
+                <div className="ml-2 bg-red-500 text-white w-4 h-4 text-xs rounded-full flex items-center justify-center -top-2 -right-2 absolute">
+                  {totalQuantity}
+                </div>
+              )}
+            </Link>
+          </div>
         </div>
         <button
           onClick={() => dispatch(toggoleMenu())}
@@ -98,9 +109,13 @@ const Navbar = () => {
                 <HiSearch />
               </button>
             </div>
-            <button className="text-body text-2xl w-full text-left">
-              <HiOutlineShoppingCart />
-            </button>
+            <Link
+              to="/cart-items"
+              className="text-body text-2xl w-full text-left flex items-center"
+            >
+              <HiOutlineShoppingCart />{" "}
+              <span className="bg-red-600">({totalQuantity})</span>
+            </Link>
           </div>
         </div>
       )}
