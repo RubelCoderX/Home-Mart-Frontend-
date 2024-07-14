@@ -2,6 +2,8 @@ import Home from "@/components/Home/Home/Home";
 import Main from "@/components/layout/Main";
 import AboutUs from "@/pages/AboutUs/AboutUs";
 import CartPage from "@/pages/CartPage/CartPage";
+import OrderComplete from "@/pages/OrderComplete/OrderComplete";
+import SuccessPage from "@/pages/OrderComplete/SeccessPage";
 import ProductDetails from "@/pages/ProductDetails/ProductDetails";
 import ProductManagement from "@/pages/ProductManagement/ProductManagement";
 import Products from "@/pages/Products/Products";
@@ -37,6 +39,14 @@ const router = createBrowserRouter([
       {
         path: "cart-items",
         element: <CartPage></CartPage>,
+      },
+      {
+        path: "order-complete",
+        element: <OrderComplete></OrderComplete>,
+      },
+      {
+        path: "success",
+        element: <SuccessPage></SuccessPage>,
       },
     ],
   },

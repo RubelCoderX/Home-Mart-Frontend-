@@ -22,14 +22,16 @@ const ProductCard = ({
       />
       <div className="product-info mt-4">
         <h3 className="text-2xl font-semibold truncate">{name}</h3>
-        <p className="my-2 text-gray-600">{description}</p>
+        <p className="my-2 text-gray-600 text-justify w-full truncate">
+          {description}
+        </p>
         <div className="flex justify-between items-center mt-4">
-          <p className="text-xl font-bold text-primary">${price}</p>
+          <p className="text-xl font-bold text-primary">$ {price}</p>
           <Link
             to={`/product-details/${_id}`}
             className="bg-primary text-white py-2 px-6 rounded-md hover:bg-primary-dark transition duration-300"
           >
-            Shop Now
+            Show Details
           </Link>
         </div>
       </div>

@@ -3,13 +3,16 @@ import { baseApi } from "@/redux/api/baseApi";
 const productApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getAllProducts: builder.query({
-      query: ({ search = "", sortBy = "" } = {}) => {
+      query: ({ search, sortBy, category }) => {
         const params = new URLSearchParams();
         if (sortBy) {
           params.append("sort", sortBy);
         }
         if (search) {
           params.append("search", search);
+        }
+        if (category) {
+          params.append("category", category);
         }
 
         return {
@@ -18,7 +21,9 @@ const productApi = baseApi.injectEndpoints({
           params,
         };
       },
+      providesTags: ["product"],
     }),
+
     addProduct: builder.mutation({
       query: (data) => {
         return {
@@ -27,6 +32,17 @@ const productApi = baseApi.injectEndpoints({
           body: data,
         };
       },
+      invalidatesTags: ["product"],
+    }),
+    updateProduct: builder.mutation({
+      query: ({ productId, data }) => {
+        return {
+          url: `product/${productId}`,
+          method: "PUT",
+          body: data,
+        };
+      },
+      invalidatesTags: ["product"],
     }),
 
     getProductById: builder.query({
@@ -34,6 +50,14 @@ const productApi = baseApi.injectEndpoints({
         url: `/product/${id}`,
         method: "GET",
       }),
+      providesTags: ["product"],
+    }),
+    deleteProduct: builder.mutation({
+      query: (productId: string) => {
+        console.log(productId);
+        return { url: `/product/${productId}`, method: "DELETE" };
+      },
+      invalidatesTags: ["product"],
     }),
   }),
 });

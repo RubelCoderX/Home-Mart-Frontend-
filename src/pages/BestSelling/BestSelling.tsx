@@ -14,8 +14,10 @@ const BestSelling = () => {
       duration: 1000,
     });
   }, []);
-  const { data, error, isLoading } =
-    productApi.useGetAllProductsQuery(undefined);
+  const { data, error, isLoading } = productApi.useGetAllProductsQuery({
+    search: "",
+    sortBy: "",
+  });
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -26,7 +28,6 @@ const BestSelling = () => {
   }
 
   const products = data?.data?.slice(0, 3);
-  console.log(products);
 
   return (
     <div className="best-selling-products">

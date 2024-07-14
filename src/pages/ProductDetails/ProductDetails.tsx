@@ -72,12 +72,13 @@ const ProductDetails = () => {
           <p className="text-md text-gray-700 mb-4">
             {product?.data.description}
           </p>
-          <div className=" space-y-4">
+          <div className="space-y-4">
             <p className="text-2xl text-gray-800">${product?.data.price}</p>
             <p className="text-md text-gray-700">
               Stock: {product?.data.stock}
             </p>
           </div>
+
           <p className="text-md text-gray-700 mb-6">
             Category: {product?.data.category}
           </p>

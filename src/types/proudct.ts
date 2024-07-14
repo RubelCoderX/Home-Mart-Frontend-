@@ -7,4 +7,14 @@ export type TProduct = {
   stock: number;
   rating: number;
   images: string;
+  delay: number;
+};
+export type CategoryType = {
+  id: string;
+  category: string;
+  images: string;
+};
+
+export type ProductListProps = {
+  products: TProduct[];
 };

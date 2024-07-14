@@ -13,8 +13,10 @@ const FeaturedProducts = () => {
       duration: 1000,
     });
   }, []);
-  const { data, error, isLoading } =
-    productApi.useGetAllProductsQuery(undefined);
+  const { data, error, isLoading } = productApi.useGetAllProductsQuery({
+    search: "",
+    sortBy: "",
+  });
 
   if (isLoading) {
     return <div>Loading...</div>;

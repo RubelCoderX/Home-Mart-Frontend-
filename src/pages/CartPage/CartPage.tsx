@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux";
-
 import { RootState } from "@/redux/store";
 import {
   removeFromCart,
@@ -9,6 +8,7 @@ import { Link } from "react-router-dom";
 
 const CartPage = () => {
   const dispatch = useDispatch();
+
   const cartItems = useSelector((state: RootState) => state.cart.items);
 
   // Handle quantity change
@@ -64,7 +64,7 @@ const CartPage = () => {
                   <div className="flex items-center mb-4 md:mb-0">
                     <input type="checkbox" className="mr-2" />
                     <img
-                      src={item.images[0]}
+                      src={item.images}
                       alt={item.name}
                       className="w-20 h-20 object-cover rounded mr-4"
                     />
@@ -133,17 +133,19 @@ const CartPage = () => {
                   </h2>
                 </span>
               </div>
-              <button
-                onClick={() => alert("Proceed to Checkout")}
-                disabled={isPlaceOrderDisabled()}
-                className={`mt-4 w-full px-6 py-3 rounded ${
-                  isPlaceOrderDisabled()
-                    ? "bg-gray-400"
-                    : "bg-green-500 text-white"
-                }`}
-              >
-                Regular Checkout
-              </button>
+              <Link to="/order-complete">
+                <button
+                  disabled={isPlaceOrderDisabled()}
+                  className={`mt-4 w-full px-6 py-3 rounded ${
+                    isPlaceOrderDisabled()
+                      ? "bg-gray-400"
+                      : "bg-green-500 text-white"
+                  }`}
+                >
+                  Place Order
+                </button>
+              </Link>
+
               <Link to="/products">
                 <button
                   onClick={() => alert("Continue Shopping")}

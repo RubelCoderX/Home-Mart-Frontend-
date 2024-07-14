@@ -4,7 +4,10 @@ import ProductList from "./ProductList";
 import productApi from "@/redux/features/product/productApi";
 
 const ProductManagement = () => {
-  const { data, isLoading } = productApi.useGetAllProductsQuery(undefined);
+  const { data, isLoading } = productApi.useGetAllProductsQuery({
+    search: "",
+    sortBy: "",
+  });
   const products: TProduct[] = data?.data ?? [];
   if (isLoading) {
     return <div>Loading....</div>;

@@ -1,9 +1,19 @@
 import productApi from "@/redux/features/product/productApi";
+import { CategoryType } from "@/types";
+
 import { GoArrowRight } from "react-icons/go";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CategoriesProduct = () => {
-  const { data } = productApi.useGetAllProductsQuery(undefined);
+  const navigate = useNavigate();
+  const { data } = productApi.useGetAllProductsQuery({
+    search: "",
+    sortBy: "",
+  });
+
+  const handleCategoryClick = (category: string) => {
+    navigate(`/products?category=${category}`);
+  };
 
   return (
     <div className="categories-product-section py-8 bg-[#f8f9fa]">
@@ -20,14 +30,15 @@ const CategoriesProduct = () => {
         </div>
 
         <div className="flex flex-wrap   justify-center sm:justify-start items-center">
-          {data?.data.map((category) => (
+          {data?.data.map((category: CategoryType) => (
             <div
               key={category.id}
               className="category-card flex flex-col items-center text-center cursor-pointer m-4"
+              onClick={() => handleCategoryClick(category.category)}
             >
               <img
                 src={category.images}
-                alt={category.name}
+                alt={category.category}
                 className="category-icon w-16 h-16 mb-2 rounded-full"
               />
               <h3 className="text-lg font-semibold">{category.category}</h3>
