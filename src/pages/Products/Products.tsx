@@ -25,6 +25,8 @@ const Products = () => {
   const category = query.get("category") || "";
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [sortBy, setSortBy] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>(category);
+  const [priceRange, setPriceRange] = useState<number>(0);
 
   useEffect(() => {
     AOS.init({
@@ -35,7 +37,8 @@ const Products = () => {
   const { data, isLoading } = productApi.useGetAllProductsQuery({
     search: searchTerm,
     sortBy,
-    category,
+    category: selectedCategory,
+    price: priceRange,
   });
 
   const debouncedSearch = useCallback(
@@ -55,6 +58,8 @@ const Products = () => {
           onClick={() => {
             setSearchTerm("");
             setSortBy("");
+            setSelectedCategory("");
+            setPriceRange(0);
           }}
           className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition duration-300"
         >
@@ -98,6 +103,50 @@ const Products = () => {
             <option value="-1">Price: High to Low</option>
           </select>
         </div>
+
+        <div>
+          <label
+            htmlFor="category"
+            className="block text-sm font-medium mb-2 text-gray-700"
+          >
+            Filter by category
+          </label>
+          <select
+            id="category"
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            className="p-2 border rounded-md w-full"
+          >
+            <option value="">All Categories</option>
+            <option value="Backpacks">Backpacks</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Lighting">Lighting</option>
+            <option value="Outdoor Accessories">Outdoor Accessories</option>
+            <option value="Cooking Gear">Cooking Gear</option>
+          </select>
+        </div>
+
+        <div>
+          <label
+            htmlFor="priceRange"
+            className="block text-sm font-medium mb-2 text-gray-700"
+          >
+            Filter by price range
+          </label>
+          <input
+            type="range"
+            min="0"
+            max="1000"
+            value={priceRange}
+            onChange={(e) => setPriceRange(Number(e.target.value))}
+            className="w-full mb-2"
+          />
+
+          <div className="flex justify-between text-sm text-gray-600">
+            <span>${priceRange}</span>
+            <span>${1000}</span>
+          </div>
+        </div>
       </div>
 
       {isLoading ? (
@@ -111,7 +160,7 @@ const Products = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map((product, index) => (
-            <ProductCard key={product._id} {...product} delay={index * 300} />
+            <ProductCard key={product._id} {...product} delay={index * 50} />
           ))}
         </div>
       )}

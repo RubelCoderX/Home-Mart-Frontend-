@@ -77,7 +77,7 @@ const CartPage = () => {
                     <button
                       onClick={() =>
                         handleQuantityChange(
-                          item._id,
+                          item._id!,
                           item.quantity - 1,
                           item.stock
                         )
@@ -91,7 +91,7 @@ const CartPage = () => {
                     <button
                       onClick={() =>
                         handleQuantityChange(
-                          item._id,
+                          item._id!,
                           item.quantity + 1,
                           item.stock
                         )
@@ -106,7 +106,7 @@ const CartPage = () => {
                     $ {item.price * item.quantity}
                   </p>
                   <button
-                    onClick={() => handleRemoveProduct(item._id)}
+                    onClick={() => handleRemoveProduct(item._id!)}
                     className="px-4 py-2 bg-red-500 text-white rounded"
                   >
                     Remove

@@ -12,11 +12,11 @@ const ProductCard = ({
   return (
     <div
       className="product-card bg-white p-4 rounded-lg cursor-pointer shadow-lg hover:shadow-xl transition-shadow duration-300"
-      data-aos="flip-up"
+      data-aos="fade-up"
       data-aos-delay={delay}
     >
       <img
-        src={images} // Assuming the first image is to be displayed
+        src={images}
         alt={name}
         className="product-image w-full h-48 object-cover rounded-t-lg"
       />

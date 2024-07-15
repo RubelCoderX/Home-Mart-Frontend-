@@ -1,30 +1,75 @@
-# React + TypeScript + Vite
+<div align="center">
+  <h1>Campers Shop</h1>
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
 
-Currently, two official plugins are available:
+Welcome to Campers Shop! This project aims to provide a seamless and engaging platform for exploring and purchasing campers for your next adventure.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Description
 
-## Expanding the ESLint configuration
+Campers Shop is an e-commerce application designed to offer a wide selection of campers for various journeys. The platform provides a user-friendly interface to browse, search, filter, and manage camper products. The project is built with a modern technology stack to ensure scalability, performance, and ease of maintenance.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+- User-friendly product browsing experience
+- Advanced search and filtering capabilities
+- Product management for admins (CRUD operations)
+- Shopping cart functionality
+- Responsive design for all devices
+- Secure payment integration with Cash on Delivery
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Technology Stack
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+# Frontend
+
+- React: JavaScript library for building user interfaces
+- Redux: State management library.
+- Tailwind CSS: Utility-first CSS framework
+- React form Hook: Custom hooks for logic reusability
+
+# Backend
+
+- Express: Web framework for Node.js
+- Node.js: JavaScript runtime
+- MongoDB: NoSQL database
+- TypeScript: Superset of JavaScript for type safety
+
+## Installation Guideline
+
+# Frontend
+
+1. Clone the repository:
+
+- git clone https://github.com/princeRubel1/Campers-Shop-Frontend
+
+2. Install frontend dependencies:
+
+- cd folder name
+- yarn or npm install
+
+# Backend
+
+1. git clone https://github.com/princeRubel1/Campers-Shop-Backend
+
+2. Install frontend dependencies:
+
+- cd folder name
+- yarn or npm install
+
+### Prerequisites
+
+- Node.js
+- MongoDB
+- Yarn or npm
+
+### Configuration
+
+1. Create a `.env` file in the root directory of the project.
+2. Add necessary configuration variables in the `.env` file.
+   Example:
+   ```bash
+    PORT=3000
+    DB_URL=your_db_connection_uri
+    API_KEY=your_api_key_here
+   ```

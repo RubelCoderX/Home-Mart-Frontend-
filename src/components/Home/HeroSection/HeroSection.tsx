@@ -48,33 +48,37 @@ const HeroSection = () => {
   ];
 
   return (
-    <div className="hero-section">
+    <div className="hero-section mt-16">
       <Carousel
         className="main-slide"
-        autoPlay={true}
+        // autoPlay={true}
         interval={3000}
         infiniteLoop={true}
       >
         {slides.map((slide, index) => (
-          <div key={index}>
+          <div key={index} className="relative">
             <img
               src={slide.image}
               alt={`Slide ${index + 1}`}
-              className="h-[900px] blur"
+              className="w-full h-[400px] md:h-[600px] lg:h-[900px] object-cover"
             />
-            <div className="slide-content">
-              <h1 className="text-4xl md:text-5xl font-bold">{slide.title}</h1>
-              <p className="text-lg md:text-xl">{slide.description}</p>
-              <div className="mt-6 flex justify-center">
+            <div className="slide-content absolute inset-0 flex flex-col justify-center items-center text-center text-white p-4">
+              <h1 className="text-2xl md:text-4xl  lg:text-5xl font-bold">
+                {slide.title}
+              </h1>
+              <p className="text-sm md:text-lg lg:text-xl mt-2">
+                {slide.description}
+              </p>
+              <div className="mt-6 flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
                 <a
                   href={slide.buttonLink}
-                  className="bg-primary text-white py-2 px-6 rounded-md mr-4 hover:bg-primary-dark transition duration-300"
+                  className="bg-primary text-white py-2 px-4 md:px-6 rounded-md hover:bg-primary-dark transition duration-300"
                 >
                   {slide.buttonText}
                 </a>
                 <a
                   href={slide.aboutUsLink}
-                  className="border border-white text-white py-2 px-6 rounded-md hover:bg-white hover:text-primary transition duration-300"
+                  className="border border-white text-[#027BFF] py-2 px-4 md:px-6 rounded-md hover:bg-white hover:text-primary transition duration-300"
                 >
                   {slide.aboutUsText}
                 </a>

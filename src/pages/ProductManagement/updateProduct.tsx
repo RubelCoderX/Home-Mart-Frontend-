@@ -17,6 +17,7 @@ import { TProduct } from "@/types";
 
 import { toast } from "sonner";
 import productApi from "@/redux/features/product/productApi";
+import { FiEdit } from "react-icons/fi";
 
 interface UpdateProductProps {
   product: TProduct;
@@ -69,7 +70,7 @@ const UpdateProduct: React.FC<UpdateProductProps> = ({ product }) => {
     <div>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button variant="outline">Edit Product</Button>
+          <FiEdit className="text-3xl cursor-pointer "></FiEdit>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>

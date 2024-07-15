@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useParams } from "react-router-dom";
 import productApi from "@/redux/features/product/productApi";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
@@ -23,15 +24,18 @@ const ProductDetails = () => {
     }
   }, [product, dispatch]);
 
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (product: any) => {
     const cartItem = cartItems.find((item) => item._id === product.data._id);
     if (!cartItem || (cartItem && cartItem.quantity < product.stock)) {
       dispatch(addToCart(product.data));
       toast.success("Product added to cart!", { position: "top-center" });
     } else {
-      toast.error("Product is out of stock or limit reached!", {
-        position: "top-right",
-      });
+      toast.error(
+        "Product added to cart only once. You can add more quantity!",
+        {
+          position: "top-center",
+        }
+      );
     }
   };
 
@@ -85,14 +89,14 @@ const ProductDetails = () => {
 
           <button
             onClick={() => handleAddToCart(product)}
-            disabled={cartItem?.quantity >= product?.data.stock}
+            disabled={!cartItem?.quantity >= product?.data.stock}
             className={`px-6 py-3 rounded-md text-white ${
-              cartItem?.quantity >= product?.data.stock
+              !cartItem?.quantity >= product?.data.stock
                 ? "bg-gray-500 cursor-not-allowed"
                 : "bg-blue-500 hover:bg-blue-700"
             }`}
           >
-            {cartItem?.quantity >= product?.data.stock
+            {!cartItem?.quantity >= product?.data.stock
               ? "Out of Stock"
               : "Add to Cart"}
           </button>

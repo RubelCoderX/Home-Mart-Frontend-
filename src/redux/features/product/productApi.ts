@@ -3,7 +3,7 @@ import { baseApi } from "@/redux/api/baseApi";
 const productApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getAllProducts: builder.query({
-      query: ({ search, sortBy, category }) => {
+      query: ({ search, sortBy, category, price }) => {
         const params = new URLSearchParams();
         if (sortBy) {
           params.append("sort", sortBy);
@@ -13,6 +13,9 @@ const productApi = baseApi.injectEndpoints({
         }
         if (category) {
           params.append("category", category);
+        }
+        if (price) {
+          params.append("price", price);
         }
 
         return {
