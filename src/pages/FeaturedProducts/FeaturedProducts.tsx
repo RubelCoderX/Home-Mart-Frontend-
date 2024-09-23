@@ -27,6 +27,7 @@ const FeaturedProducts = () => {
   }
 
   const features = data?.data?.slice(0, 4);
+
   return (
     <div>
       <div className="best-selling-products">

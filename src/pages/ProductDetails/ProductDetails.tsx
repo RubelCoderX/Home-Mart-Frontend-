@@ -2,7 +2,7 @@
 import { useParams } from "react-router-dom";
 import productApi from "@/redux/features/product/productApi";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { setProduct } from "@/redux/features/product/productSlice";
 import { addToCart } from "@/redux/features/cartSlice/carSlice";
 import { toast } from "sonner";
@@ -11,6 +11,7 @@ const ProductDetails = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector((state) => state.cart.items);
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
 
   const {
     data: product,
@@ -55,38 +56,67 @@ const ProductDetails = () => {
 
   return (
     <div className="container mx-auto px-4 py-8 mt-32">
-      <div className="flex flex-col md:flex-row">
-        <div className="md:w-1/2 mb-4 md:mb-0">
+      {/* Product container */}
+      <div className="flex flex-col lg:flex-row bg-white rounded-lg shadow-lg p-6 lg:space-x-8 space-y-6 lg:space-y-0">
+        {/* Product image */}
+        <div className="lg:w-1/2">
           <img
             src={product?.data.images} // Assuming the first image is to be displayed
             alt={product?.data.name}
-            className="w-full h-96 object-cover rounded-lg shadow-md"
+            className="w-full h-96 object-cover rounded-lg shadow-md mb-4"
           />
         </div>
-        <div className="md:w-1/2 md:ml-8">
-          <h2 className="text-3xl font-bold mb-4">{product?.data.name}</h2>
-          <div className="flex items-center mb-4">
-            <span className="text-yellow-500 text-xl mr-2">
+        {/* Product details */}
+        <div className="lg:w-1/2 space-y-4">
+          <h2 className="text-4xl font-semibold text-gray-800">
+            {product?.data.name}
+          </h2>
+          <div className="flex items-center space-x-2">
+            <span className="text-yellow-500 text-2xl">
               ★ {product?.data.rating}
             </span>
             <a href="#reviews" className="text-blue-500 underline">
               {product?.data.reviewCount} reviews
             </a>
           </div>
-          <p className="text-md text-gray-700 mb-4">
-            {product?.data.description}
-          </p>
+          <p className="text-gray-600">{product?.data.description}</p>
+
           <div className="space-y-4">
-            <p className="text-2xl text-gray-800">${product?.data.price}</p>
+            <p className="text-3xl text-gray-900 font-bold">
+              Rs. {product?.data.price}
+            </p>
             <p className="text-md text-gray-700">
               Stock: {product?.data.stock}
             </p>
+
+            {/* Conditionally render size for clothes category */}
+            {product?.data.category === "Clothes" && (
+              <div className="flex items-center space-x-2">
+                <p className="text-md text-gray-700">Size:</p>
+                <div className="flex space-x-4 cursor-pointer">
+                  {["S", "M", "L", "XL"].map((size) => (
+                    <span
+                      key={size}
+                      className={`px-4 py-2 border rounded-md text-sm ${
+                        selectedSize === size
+                          ? "bg-blue-500 text-white"
+                          : "bg-white text-gray-700"
+                      }`}
+                      onClick={() => setSelectedSize(size)}
+                    >
+                      {size}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
-          <p className="text-md text-gray-700 mb-6">
+          <p className="text-md text-gray-700">
             Category: {product?.data.category}
           </p>
 
+          {/* Add to Cart button */}
           <button
             onClick={() => handleAddToCart(product)}
             disabled={!cartItem?.quantity >= product?.data.stock}
@@ -100,6 +130,25 @@ const ProductDetails = () => {
               ? "Out of Stock"
               : "Add to Cart"}
           </button>
+        </div>
+      </div>
+
+      {/* Additional product information (Reviews, Policies, etc.) */}
+      <div className="mt-12">
+        <h3 className="text-2xl font-bold mb-6">Additional Information</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+            <h4 className="text-xl font-semibold mb-4">Shipping Policy</h4>
+            <p className="text-gray-600">
+              All products are shipped within 3-5 business days.
+            </p>
+          </div>
+          <div className="bg-gray-100 p-6 rounded-lg shadow-md">
+            <h4 className="text-xl font-semibold mb-4">Return Policy</h4>
+            <p className="text-gray-600">
+              Returns are accepted within 30 days of purchase.
+            </p>
+          </div>
         </div>
       </div>
     </div>

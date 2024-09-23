@@ -1,6 +1,5 @@
 import productApi from "@/redux/features/product/productApi";
 import { CategoryType } from "@/types";
-
 import { GoArrowRight } from "react-icons/go";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -14,6 +13,9 @@ const CategoriesProduct = () => {
   const handleCategoryClick = (category: string) => {
     navigate(`/products?category=${category}`);
   };
+
+  // Use a Set to track displayed categories
+  const displayedCategories = new Set();
 
   return (
     <div className="categories-product-section py-8 bg-[#f8f9fa]">
@@ -29,21 +31,31 @@ const CategoriesProduct = () => {
           </Link>
         </div>
 
-        <div className="flex flex-wrap   justify-center sm:justify-start items-center">
-          {data?.data.map((category: CategoryType) => (
-            <div
-              key={category.id}
-              className="category-card flex flex-col items-center text-center cursor-pointer m-4"
-              onClick={() => handleCategoryClick(category.category)}
-            >
-              <img
-                src={category.images}
-                alt={category.category}
-                className="category-icon w-16 h-16 mb-2 rounded-full"
-              />
-              <h3 className="text-lg font-semibold">{category.category}</h3>
-            </div>
-          ))}
+        <div className="flex flex-wrap justify-center sm:justify-start items-center">
+          {data?.data.map((product: CategoryType) => {
+            const category = product.category;
+
+            // Only render the category if it hasn't been displayed yet
+            if (!displayedCategories.has(category)) {
+              displayedCategories.add(category); // Mark this category as displayed
+              return (
+                <div
+                  key={category} // Use category as key since it's unique
+                  className="category-card flex flex-col items-center text-center cursor-pointer m-4"
+                  onClick={() => handleCategoryClick(category)}
+                >
+                  <img
+                    src={product.images}
+                    alt={category}
+                    className="category-icon w-16 h-16 mb-2 rounded-full"
+                  />
+                  <h3 className="text-lg font-semibold">{category}</h3>
+                </div>
+              );
+            }
+
+            return null;
+          })}
         </div>
       </div>
     </div>

@@ -15,7 +15,6 @@ type FormData = {
 
 const OrderComplete = () => {
   const cartItem = useAppSelector((state) => state.cart);
-
   const {
     register,
     handleSubmit,
@@ -26,14 +25,30 @@ const OrderComplete = () => {
   const [paymentOrder] = orderApi.usePaymentOrderMutation();
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
-    const order = { ...cartItem, data };
-    paymentOrder(order);
-    // Clear cart
-    dispatch(clearCart());
+    // Merge form data with cart item details
+    const order = {
+      ...cartItem,
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      address: data.address,
+      paymentMethod: data.paymentMethod,
+    };
 
-    // Redirect to success page
-    navigate("/success");
+    // Send the order to the backend
+    paymentOrder(order)
+      .unwrap()
+      .then(() => {
+        // Clear the cart after successful order
+        dispatch(clearCart());
+        // Redirect to success page
+        navigate("/success");
+      })
+      .catch((error) => {
+        console.error("Order failed:", error);
+      });
   };
+
   return (
     <div className="container mx-auto mt-40">
       <h1 className="text-2xl font-bold mb-6">Checkout</h1>

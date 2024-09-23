@@ -26,7 +26,7 @@ const ProductCard = ({
           {description}
         </p>
         <div className="flex justify-between items-center mt-4">
-          <p className="text-xl font-bold text-primary">$ {price}</p>
+          <p className="text-xl font-bold text-primary"> Rs. {price}</p>
           <Link
             to={`/product-details/${_id}`}
             className="bg-primary text-white py-2 px-6 rounded-md hover:bg-primary-dark transition duration-300"

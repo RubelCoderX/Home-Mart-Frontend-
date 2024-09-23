@@ -1,4 +1,7 @@
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import gargi from "../../assets/gargi.png";
+import aakarsh from "../../assets/aakarsh.png";
+import jaymin from "../../assets/jaymin.png";
 
 const AboutUs = () => {
   return (
@@ -7,8 +10,8 @@ const AboutUs = () => {
 
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
-        <p className="mb-2">Phone : +919510366040</p>
-        <p className="mb-2">Email : mdrubel29879@gmail.com</p>
+        <p className="mb-2">Phone : +919510304564</p>
+        <p className="mb-2">Email : homemart.support@gmail.com</p>
         <p>Address : 489 5th Avenue, New York, NY 10014</p>
       </section>
 
@@ -77,15 +80,33 @@ const AboutUs = () => {
 
       <section>
         <h2 className="text-2xl font-semibold mb-4">Meet Our Team</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="text-center">
             <img
-              src="https://via.placeholder.com/150"
+              src={gargi}
               alt="Team Member"
               className="w-32 h-32 rounded-full mx-auto mb-4"
             />
-            <h3 className="text-xl font-semibold">John Doe</h3>
-            <p>CEO & Founder</p>
+            <h3 className="text-xl font-semibold">Gargi</h3>
+            <p>Frontend Developer</p>
+          </div>
+          <div className="text-center">
+            <img
+              src={aakarsh}
+              alt="Team Member"
+              className="w-32 h-32 rounded-full mx-auto mb-4"
+            />
+            <h3 className="text-xl font-semibold">Aakarsh</h3>
+            <p>Backend Developer</p>
+          </div>
+          <div className="text-center">
+            <img
+              src={jaymin}
+              alt="Team Member"
+              className="w-32 h-32 rounded-full mx-auto mb-4"
+            />
+            <h3 className="text-xl font-semibold">Jaymin</h3>
+            <p>Frontend Developer</p>
           </div>
           <div className="text-center">
             <img
@@ -93,17 +114,8 @@ const AboutUs = () => {
               alt="Team Member"
               className="w-32 h-32 rounded-full mx-auto mb-4"
             />
-            <h3 className="text-xl font-semibold">Jane Smith</h3>
-            <p>Head of Marketing</p>
-          </div>
-          <div className="text-center">
-            <img
-              src="https://via.placeholder.com/150"
-              alt="Team Member"
-              className="w-32 h-32 rounded-full mx-auto mb-4"
-            />
-            <h3 className="text-xl font-semibold">Emily Johnson</h3>
-            <p>Lead Designer</p>
+            <h3 className="text-xl font-semibold">Chirag</h3>
+            <p>Backend Developer</p>
           </div>
         </div>
       </section>

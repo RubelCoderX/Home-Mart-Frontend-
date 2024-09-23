@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
-import logo from "../../assets/logo/camper_logo.png";
+import logo from "../../assets/logo/homeLogo.png";
 
 const Footer = () => {
   return (
@@ -8,8 +8,8 @@ const Footer = () => {
       <footer className="container mx-auto p-12 flex flex-col md:flex-row justify-between">
         <div className="flex-1 mb-8 md:mb-0">
           <div className="flex items-center mb-4">
-            <img src={logo} alt="Logo" className="md:h-20 h-10 rounded-full" />
-            <h2 className="ml-2 text-xl font-bold text-white">The Mounty</h2>
+            <img src={logo} alt="Logo" className="md:h-24 h-10 rounded-full" />
+            <h2 className="ml-2 text-xl font-bold text-white">Home Mart</h2>
           </div>
           <p>
             Discover quality outdoor gear and accessories for your adventures.{" "}
@@ -34,15 +34,18 @@ const Footer = () => {
             </Link>
           </div>
           <div>
-            <h3 className="font-bold mb-2 text-white">Other Pages</h3>
-            <Link to="/blog" className="block hover:text-white">
-              Blog
+            <h3 className="font-bold mb-2 text-white">Category</h3>
+            <Link to="/product" className="block hover:text-white">
+              Jewellry
             </Link>
-            <Link to="/faq" className="block hover:text-white">
-              FAQ
+            <Link to="/product" className="block hover:text-white">
+              Crafts
             </Link>
-            <Link to="/activities" className="block hover:text-white">
-              Activities
+            <Link to="/product" className="block hover:text-white">
+              Decoratives
+            </Link>
+            <Link to="/product" className="block hover:text-white">
+              Clothing
             </Link>
           </div>
           <div>

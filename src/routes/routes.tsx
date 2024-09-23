@@ -1,7 +1,11 @@
+import BecomeASeller from "@/components/Dashboard/BecomeASeller";
 import Home from "@/components/Home/Home/Home";
 import Main from "@/components/layout/Main";
+import Login from "@/components/Login/Login";
+import Register from "@/components/Register/Register";
 import AboutUs from "@/pages/AboutUs/AboutUs";
 import CartPage from "@/pages/CartPage/CartPage";
+
 import OrderComplete from "@/pages/OrderComplete/OrderComplete";
 import SuccessPage from "@/pages/OrderComplete/SeccessPage";
 import ProductDetails from "@/pages/ProductDetails/ProductDetails";
@@ -9,6 +13,7 @@ import ProductManagement from "@/pages/ProductManagement/ProductManagement";
 import Products from "@/pages/Products/Products";
 
 import { createBrowserRouter } from "react-router-dom";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +43,11 @@ const router = createBrowserRouter([
       },
       {
         path: "cart-items",
-        element: <CartPage></CartPage>,
+        element: (
+          <ProtectedRoutes>
+            <CartPage></CartPage>
+          </ProtectedRoutes>
+        ),
       },
       {
         path: "order-complete",
@@ -48,7 +57,23 @@ const router = createBrowserRouter([
         path: "success",
         element: <SuccessPage></SuccessPage>,
       },
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: "register",
+        element: <Register />,
+      },
     ],
+  },
+  {
+    path: "seller",
+    element: (
+      <ProtectedRoutes>
+        <BecomeASeller />
+      </ProtectedRoutes>
+    ),
   },
 ]);
 

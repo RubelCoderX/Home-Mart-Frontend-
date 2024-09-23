@@ -2,21 +2,21 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import "./HeroSection.css"; // Ensure this file exists for custom styles
 
-import slide1 from "../../../assets/sliderImag/slider1.jpg";
-import slide2 from "../../../assets/sliderImag/slide2.jpg";
-import slide3 from "../../../assets/sliderImag/slide3.jpg";
-import slide4 from "../../../assets/sliderImag/slide4.jpg";
+import slide4 from "../../../assets/banner1.jpeg";
+import slide3 from "../../../assets/banner2.jpeg";
+import slide2 from "../../../assets/banner3.jpg";
+import slide1 from "../../../assets/banner5.jpeg";
 
 const HeroSection = () => {
   const slides = [
     {
       image: slide1,
       title: "Explore Our Camper Collection",
-      description: "Discover the perfect camper for your next adventure.",
-      buttonText: "Shop Now",
-      buttonLink: "/products",
-      aboutUsText: "About Us",
-      aboutUsLink: "/about-us",
+      // description: "Discover the perfect camper for your next adventure.",
+      // buttonText: "Shop Now",
+      // buttonLink: "/products",
+      // aboutUsText: "About Us",
+      // aboutUsLink: "/about-us",
     },
     {
       image: slide2,
@@ -51,7 +51,7 @@ const HeroSection = () => {
     <div className="hero-section mt-16">
       <Carousel
         className="main-slide"
-        // autoPlay={true}
+        autoPlay={true}
         interval={3000}
         infiniteLoop={true}
       >
@@ -62,7 +62,7 @@ const HeroSection = () => {
               alt={`Slide ${index + 1}`}
               className="w-full h-[400px] md:h-[600px] lg:h-[900px] object-cover"
             />
-            <div className="slide-content absolute inset-0 flex flex-col justify-center items-center text-center text-white p-4">
+            {/* <div className="slide-content absolute inset-0 flex flex-col justify-center items-center text-center text-white p-4">
               <h1 className="text-2xl md:text-4xl  lg:text-5xl font-bold">
                 {slide.title}
               </h1>
@@ -83,7 +83,7 @@ const HeroSection = () => {
                   {slide.aboutUsText}
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
         ))}
       </Carousel>

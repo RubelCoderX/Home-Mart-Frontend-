@@ -10,7 +10,24 @@ const orderApi = baseApi.injectEndpoints({
           body: data,
         };
       },
+
       invalidatesTags: ["product"],
+    }),
+    getAllOrders: builder.query({
+      query: () => {
+        return {
+          url: "order/get-order",
+          method: "get",
+        };
+      },
+    }),
+    getMyOrder: builder.query({
+      query: () => {
+        return {
+          url: "order/my-order",
+          method: "GET",
+        };
+      },
     }),
   }),
 });
