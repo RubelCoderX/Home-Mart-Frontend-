@@ -31,6 +31,8 @@ const Navbar = () => {
   }, [dispatch]);
 
   const user = getMe?.data;
+  console.log(user);
+  console.log(user?.photoUrl);
 
   // Become a seller and redirect to the dashboard
   const handleBecomeSeller = async () => {
@@ -94,7 +96,7 @@ const Navbar = () => {
                 {user.photoUrl && (
                   <img
                     src={user.photoUrl}
-                    alt={user.name}
+                    // alt={user.name}
                     className="w-8 h-8 rounded-full"
                   />
                 )}
@@ -161,7 +163,7 @@ const Navbar = () => {
                 onClick={handleBecomeSeller}
                 disabled={!user} // Disable the button if the user is not logged in
                 className={`inline-block border-2 text-black font-semibold py-1 px-2 rounded transition duration-300 ease-in-out transform hover:-translate-y-1 ${
-                  !user ? "opacity-50 cursor-not-allowed" : "" // Apply styles when disabled
+                  !user ? "opacity-50 cursor-not-allowed" : ""
                 }`}
               >
                 Become A Seller
@@ -180,7 +182,7 @@ const Navbar = () => {
                 <Link to="/profile" className="flex items-center w-full">
                   <img
                     src={user.photoUrl}
-                    alt={user.name}
+                    // alt={user.name}
                     className="w-8 h-8 rounded-full"
                   />
 

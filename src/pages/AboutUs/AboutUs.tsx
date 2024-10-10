@@ -2,6 +2,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 import gargi from "../../assets/gargi.png";
 import aakarsh from "../../assets/aakarsh.png";
 import jaymin from "../../assets/jaymin.png";
+import chirag from "../../assets/team4.jpeg";
 
 const AboutUs = () => {
   return (
@@ -10,9 +11,10 @@ const AboutUs = () => {
 
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
-        <p className="mb-2">Phone : +919510304564</p>
-        <p className="mb-2">Email : homemart.support@gmail.com</p>
-        <p>Address : 489 5th Avenue, New York, NY 10014</p>
+        <p className="mb-2">Phone : +91 7367889530</p>
+        <p className="mb-2">Email : shriaakarshgaya@gmail.com</p>
+        <p className="mb-2">Email : gargipatel9604@gmail.com</p>
+        <p>Address : Vadodara</p>
       </section>
 
       <section className="mb-12">
@@ -110,7 +112,7 @@ const AboutUs = () => {
           </div>
           <div className="text-center">
             <img
-              src="https://via.placeholder.com/150"
+              src={chirag}
               alt="Team Member"
               className="w-32 h-32 rounded-full mx-auto mb-4"
             />
