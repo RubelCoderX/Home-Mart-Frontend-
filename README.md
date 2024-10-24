@@ -73,3 +73,21 @@ Campers Shop is an e-commerce application designed to offer a wide selection of 
     DB_URL=your_db_connection_uri
     API_KEY=your_api_key_here
    ```
+### Backend
+
+   # DB_URL =mongodb+srv://HomeMart:KxCuOW5kdYWOv1Xi@cluster0.oacx6en.mongodb.net/home-mart?retryWrites=true&w=majority&appName=Cluster0
+# PORT = 3000
+# DB_URL =mongodb+srv://CamperShop:8xsKfD9m9xHL1CZM@cluster0.oacx6en.mongodb.net/camper-shop?retryWrites=true&w=majority&appName=Cluster0
+# PORT = 3000
+DB_URL =  mongodb+srv://HomeMart:cRj6xNCkPzNYuqKO@cluster0.kx0cvnw.mongodb.net/home-mart?retryWrites=true&w=majority&appName=Cluster0
+PORT = 3000
+
+BCRYPT_SALT_ROUNDS = 10
+NODE_ENV = development
+
+JWT_ACCESS_SECRET = accessSecret
+JWT_EXPIRATION = 1d
+JWT_REFRESH_SECRET = refreshSecret
+
+### Frontend 
+
