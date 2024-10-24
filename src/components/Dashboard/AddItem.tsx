@@ -157,6 +157,21 @@ const AddItem = () => {
             </span>
           )}
         </div>
+        <div className="flex flex-col gap-2">
+          <Label htmlFor="imageUrl" className="text-left">
+            Cloths Size
+          </Label>
+          <Input
+            id="size"
+            placeholder="Enter Cloths size"
+            {...register("size", { required: "Cloth size is required" })}
+          />
+          {errors.size && (
+            <span className="text-red-500 text-sm block text-center">
+              {errors.size.message}
+            </span>
+          )}
+        </div>
 
         <Button type="submit" disabled={isLoading}>
           {isLoading ? "Adding..." : "Add Product"}

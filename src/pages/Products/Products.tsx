@@ -129,11 +129,10 @@ const Products = () => {
               className="p-2 border rounded-md w-full"
             >
               <option value="">All Categories</option>
-              <option value="Backpacks">Backpacks</option>
-              <option value="Furniture">Furniture</option>
-              <option value="Lighting">Lighting</option>
-              <option value="Outdoor Accessories">Outdoor Accessories</option>
-              <option value="Cooking Gear">Cooking Gear</option>
+              <option value="Decorative">Decorative</option>
+              <option value="clothes">clothes</option>
+              <option value="jewellery">jewellery</option>
+              <option value="craft">craft</option>
             </select>
           </div>
 

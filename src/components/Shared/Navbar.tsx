@@ -179,7 +179,7 @@ const Navbar = () => {
 
             <div className="relative w-full text-left">
               {user ? (
-                <Link to="/profile" className="flex items-center w-full">
+                <Link to="/seller" className="flex items-center w-full">
                   <img
                     src={user.photoUrl}
                     // alt={user.name}

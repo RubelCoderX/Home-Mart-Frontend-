@@ -30,7 +30,8 @@ const Login = () => {
       });
       navigate("/");
     } catch (error: any) {
-      toast.error(error.message);
+      console.log(error);
+      toast.error(error?.data?.message, { position: "top-center" });
     }
   };
 

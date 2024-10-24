@@ -10,6 +10,7 @@ export type TProduct = {
   rating: number;
   images: string;
   delay: number;
+  size?: string;
 };
 export type CategoryType = {
   id: string;

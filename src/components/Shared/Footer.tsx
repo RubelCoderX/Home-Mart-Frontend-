@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 import logo from "../../assets/logo/homeLogo.png";
 
 const Footer = () => {
@@ -33,16 +33,16 @@ const Footer = () => {
           </div>
           <div>
             <h3 className="font-bold mb-2 text-white">Category</h3>
-            <Link to="/product-us" className="block hover:text-white">
+            <Link to="/products" className="block hover:text-white">
               Jewellry
             </Link>
-            <Link to="/product-us" className="block hover:text-white">
+            <Link to="/products" className="block hover:text-white">
               Crafts
             </Link>
-            <Link to="/product-us" className="block hover:text-white">
+            <Link to="/products" className="block hover:text-white">
               Decoratives
             </Link>
-            <Link to="/product-us" className="block hover:text-white">
+            <Link to="/products" className="block hover:text-white">
               Clothing
             </Link>
           </div>
